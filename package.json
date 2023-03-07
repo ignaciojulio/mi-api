@@ -5,7 +5,9 @@
   "author": "",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "lint": "eslint"
   },
   "dependencies": {
     "express": "^4.18.2"
