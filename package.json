@@ -8,7 +8,12 @@
     "start": "node index.js",
     "lint": "eslint"
   },
-  "keywords": ["nodejs", "express", "json", "api"],
+  "keywords": [
+    "nodejs",
+    "express",
+    "json",
+    "api"
+  ],
   "author": "ignacio javier julio posada <ignacioj.julio@javeriana.edu.co>",
   "license": "ISC",
   "devDependencies": {
@@ -19,6 +24,7 @@
     "prettier": "^2.3.2"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "faker": "^5.5.3"
   }
