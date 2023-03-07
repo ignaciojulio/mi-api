@@ -1,5 +1,5 @@
 {
-  "name": "my-store",
+  "name": "my-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "start": "node index.js",
     "lint": "eslint"
   },
-  "keywords": [],
+  "keywords": ["nodejs", "express", "json", "api"],
   "author": "ignacio javier julio posada <ignacioj.julio@javeriana.edu.co>",
   "license": "ISC",
   "devDependencies": {

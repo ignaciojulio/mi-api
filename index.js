@@ -3,23 +3,24 @@ const fs = require('fs');
 const port = 3000;
 
 const server = http.createServer((req, res) => {
-  if (req.method === 'POST' && req.url === '/order') {
+  if (req.method === 'POST' && req.url === '/cita') {
     let body = '';
     req.on('data', chunk => {
       body += chunk.toString();
     });
     req.on('end', () => {
-      const orderNumber = JSON.parse(body).ordernumber;
-      const orders = JSON.parse(fs.readFileSync('orders.json'));
-      const order = orders.find(o => o.ordernumber === orderNumber);
+      const cedula = JSON.parse(body).cedula;
+      const citas = JSON.parse(fs.readFileSync('citas.json'));
+      const cita = citas.find(o => o.cedula === cedula);
       let answer = '';
-      if (order) {
+      if (cita) {
+        const citas = cita.citasAsignadas.map(cita => cita + " \n\n" ).join(",");
         answer = {
-          answer: `${order.status}`
+          answer: `Usted tiene ${cita.citasAsignadas.length} citas asignadas \n\n,${citas}`
         };
       } else {
         answer = {
-          answer: 'Order not found'
+          answer: `No se encontro citas asignadas a la cedula ${cedula}`
         };
       }
       res.setHeader('Content-Type', 'application/json');
