@@ -21,7 +21,7 @@ const server = http.createServer((req, res) => {
       const { cedula } = JSON.parse(body);
       const citasAsignadas = JSON.parse(fs.readFileSync('citas.json')).find(o => o.cedula === cedula)?.citasAsignadas;
       const answer = citasAsignadas
-        ? { answer: `Usted tiene ${citasAsignadas.length} citas asignadas\n${citasAsignadas.join(", ")}` }
+        ? { answer: `Usted tiene ${citasAsignadas.length} citas asignadas\n${citasAsignadas.join(".\n")}` }
         : { answer: `No se encontraron citas asignadas a la cedula ${cedula}` };
       res.setHeader('Content-Type', 'application/json');
       res.end(JSON.stringify(answer));
